@@ -42,6 +42,10 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
+Gerar a key do projeto Laravel
+```sh
+Install laravel/ui
+```
 
 Acesse o projeto
 [http://localhost:8080](http://localhost:8080)
