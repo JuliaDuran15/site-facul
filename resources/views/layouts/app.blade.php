@@ -14,7 +14,8 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
 </head>
 <body>
@@ -54,19 +55,23 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-                                <li class="nav-item dropdown">
+                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('alunos.index') }}">
                                             {{ __('Alunos') }}
                                         </a>
+                                </div>
     
-                                <li class="nav-item dropdown">
+                                        <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('professors.index') }}">
                                             {{ __('Professores') }}
                                         </a>
-                                 <li class="nav-item dropdown">
+                                        </div>
+
+                                        <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('cursos.index') }}">
                                             {{ __('Cursos') }}
                                         </a>
+                                        </div>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
