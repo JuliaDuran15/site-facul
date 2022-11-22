@@ -32,7 +32,7 @@
             </tbody>
         </table>
         @else 
-        <p>Ainda não tem alunos</p>
+        <p>Ainda não há alunos</p>
         @endif
     </div>
 </div>

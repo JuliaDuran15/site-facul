@@ -36,7 +36,7 @@
             </tbody>
         </table>
         @else 
-        <p>Ainda não tem cursos</p>
+        <p>Ainda não há cursos</p>
         @endif
     </div>
 </div>
