@@ -56,7 +56,6 @@ class AlunoController extends Controller
         Aluno::findOrFail($request->id)->update($request->all());
 
         return redirect()->route('alunos.index')->with('msg1','Login criado com sucesso!');;
-
      }
 
     public function update(Request $request, $id){
