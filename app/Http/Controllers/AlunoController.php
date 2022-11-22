@@ -47,6 +47,17 @@ class AlunoController extends Controller
         return view('alunos.edit',compact('aluno'));
 
      }
+    
+    public function login($id){
+       
+        if (!$aluno = Aluno::find($id))
+            return redirect()->route('alunos.index');
+
+        Aluno::findOrFail($request->id)->update($request->all());
+
+        return redirect()->route('alunos.index')->with('msg1','Login criado com sucesso!');;
+
+     }
 
     public function update(Request $request, $id){
        
