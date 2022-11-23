@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
-<h1> Informações a Materia {{$curso->name}}</h1>
+@section('title', 'Curso')
 
+@section('content')
+    <h1> Informações do curso {{$curso->name}}</h1>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="p-6">
