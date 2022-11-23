@@ -15,12 +15,16 @@
                             <p> CEP: {{$professor->Cep}}, Rua: {{$professor->Rua}} ,Numero: {{$professor->numero}}</p>
                             <p> Cidade: {{$professor->Cidade}}, Estado: {{$professor->Estado}}</p>
                             <p>Materias: </p>
-                        </div>
+                            </div>
+                        @can('is_Secretaria')
                         <form action="{{ route('professors.destroy', $professor ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
+                        </form>
+                        @endcan
                         </div>
-                </div>
+                        </div>
+                    </div>
             </div>
         @endsection

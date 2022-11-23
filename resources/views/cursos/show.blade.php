@@ -14,12 +14,14 @@
                                 <p class="card-description">Professor: professor</p>
                                 <p>Status: {{$curso->status}}</p>
                         </div>
+                        @can('is_Secretaria')
                         <form action="{{ route('cursos.destroy', $curso ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
                         </div>
                         </form>
+                        @endcan
                         <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
                             <button type="submit" class="btn btn-outline-info">Matricular-se</button>
                         </form>

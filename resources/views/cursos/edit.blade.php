@@ -9,6 +9,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Curso') }}</div>
 
+                @can('is_Secretaria')
                 <div class="card-body">
 
             @if ($errors->any())
@@ -53,10 +54,11 @@
                     </div>
                 <input type="submit" class="btn btn-outline-primary" value="Editar Curso">
                 </form>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
 </div>
+@endcan
 
 @endsection

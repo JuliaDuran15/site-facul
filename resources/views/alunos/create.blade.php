@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Cadastro de Aluno') }}</div>
-
+                @can('is_Secretaria')
                 <div class="card-body">
 
                     @if ($errors->any())
@@ -76,10 +76,13 @@
                         </div>
     <input type="submit" class="btn btn-outline-primary" value="Cadastrar aluno">
     </form>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
 </div>
 </div>
+
+@endcan
+
 @endsection
