@@ -21,7 +21,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar"> 
                     <a href="/" class="navbar-brand">
-                        <img scr="/img/temapng.png" alt="TECH.com">
+                        <img src="/img/temapng.png" alt="Banner">
                     </a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -34,7 +34,7 @@
                             <a href="/matricula/create" class="nav-link">Matricule-se</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/login" class="nav-link">Secretaria Login</a>
+                            <a href="/login" class="nav-link">Acesse</a>
                             @if (Route::has('login'))
                                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                                 </div>
