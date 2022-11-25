@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('professors', function (Blueprint $table) {
             $table->id();
             $table->string('name',80);
-            $table->string('Ra');
-            $table->string('Cpf');
-            $table->string('Cidade');
-            $table->string('Cep');
-            $table->string('Rua');
-            $table->string('numero');
-            $table->string('Estado');
+            $table->string('Ra')->nullable();
+            $table->string('Cpf')->nullable();
+            $table->string('Cidade')->nullable();
+            $table->string('Cep')->nullable();
+            $table->string('Rua')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('Estado')->nullable();
+            $table->foreignId('id_user')->constrained('users'); 
             $table->timestamps();
         });
     }
