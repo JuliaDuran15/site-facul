@@ -1,5 +1,5 @@
-
 @extends('layouts.app')
+
 @section('title', ' Alunos')
 
 @section('content')
@@ -25,13 +25,14 @@
                     <td>{{$aluno->name}}</td>
                     <td>  RA: {{$aluno->Ra}}</td>
                     <td><a href="{{route('alunos.show', $aluno->id)}}" class="btn btn-outline-info">Detalhes</a>
-                    <a href="{{route('alunos.edit', $aluno->id)}}" class="btn btn-outline-success">Editar</a></td>
+                    <a href="{{route('alunos.edit', $aluno->id)}}" class="btn btn-outline-success">Editar</a>
+                    <a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
         @else 
-        <p>Ainda não tem alunos</p>
+        <p>Ainda não há alunos</p>
         @endif
     </div>
 </div>

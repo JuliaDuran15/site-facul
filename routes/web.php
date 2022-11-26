@@ -24,6 +24,7 @@ Route::get('/alunos/{id}', [AlunoController::class, 'show'] )->name('alunos.show
 Route::delete('/alunos/{id}', [AlunoController::class, 'destroy'] )->name('alunos.destroy');
 Route::get('/alunos/{id}/edit', [AlunoController::class, 'edit'] )->name('alunos.edit');
 Route::put('/alunos/{id}', [AlunoController::class, 'update'] )->name('alunos.update');
+Route::get('/alunos/login', [AlunoController::class, 'login'] )->name('alunos.login');
 
 Route::get('/professors', [ProfessorController::class, 'index'] )->name('professors.index');
 Route::get('/professors/create', [ProfessorController::class, 'create'] )->name('professors.create');

@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Cadastro de Professsor') }}</div>
-
+                @can('is_Secretaria')
                 <div class="card-body">
 
 
@@ -77,6 +77,7 @@
         </div>
     </div>
 </div>
+@endcan
 
 
 @endsection

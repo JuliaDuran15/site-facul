@@ -60,6 +60,16 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        
+                        <div class="row mb-3">
+                            <label class="col-md-6" >{{ __('Acesso de: ') }}</label>
+                            <select name="acesso" id="acesso" class="form-control">
+                                <option value="aluno">Aluno</option>
+                                <option value="professor">Professor</option>
+                            </select>
+
+                        </div>
+
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

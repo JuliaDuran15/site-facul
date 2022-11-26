@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
+@section('title','Cursos')
+
 @section('content')
 <div class="dashboard-title-container">
-    <h1> Listagem dos Cursos</h1>
+    <h1> Cursos disponíveis: </h1>
 </div>
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -36,7 +38,7 @@
             </tbody>
         </table>
         @else 
-        <p>Ainda não tem cursos</p>
+        <p>Ainda não há cursos</p>
         @endif
     </div>
 </div>

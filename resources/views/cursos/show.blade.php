@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
-<h1> Informações a Materia {{$curso->name}}</h1>
+@section('title', 'Curso')
 
+@section('content')
+    <h1> Informações do curso {{$curso->name}}</h1>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="p-6">
@@ -13,12 +14,14 @@
                                 <p class="card-description">Professor: professor</p>
                                 <p>Status: {{$curso->status}}</p>
                         </div>
+                        @can('is_Secretaria')
                         <form action="{{ route('cursos.destroy', $curso ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
                         </div>
                         </form>
+                        @endcan
                         <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
                             <button type="submit" class="btn btn-outline-info">Matricular-se</button>
                         </form>

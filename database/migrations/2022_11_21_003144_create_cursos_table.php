@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name',80);
             $table->text('short_despriction');
             $table->text('description');
-            $table->enum('status',['abertas-natingido','abertas-atingido','encerradas']);
+            $table->enum('status',['abertas-min-nao-atingido','abertas-min-atingido','encerradas']);
         });
     }
 
