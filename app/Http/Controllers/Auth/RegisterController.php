@@ -72,13 +72,12 @@ class RegisterController extends Controller
             'acesso'=> $data['acesso'],
         ]);
 
-        $id_User = User::find()->latest('id');
+        /*$id_User = User::find()->latest('id');
 
         if($data['acesso'] == 'aluno'){
         Aluno::create([
             'name' => $data['name'],
             'id_users' => $data['id_User'],
-        ]);
-        }
-}
+        ]); } */
+    }
 }
