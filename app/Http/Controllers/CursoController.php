@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
-use app\Models\User;
+use App\Models\User;
 
 class CursoController extends Controller
 {
@@ -23,9 +23,9 @@ class CursoController extends Controller
        if (!$curso = Curso::find($id))
             return redirect()->route('cursos.index');
 
-        $profCurso = User::where('id', $curso->user_id)->first()->Toarray();
+        //$profCurso = User::where('id', $curso->user_id)->first()->Toarray();
 
-        return view('cursos.show',['curso'=>$curso, 'profCurso'=>$profCurso]);
+        return view('cursos.show',['curso'=>$curso]);
 
     }
 
@@ -41,6 +41,7 @@ class CursoController extends Controller
         $curso->name = $request->name;
         $curso->short_despriction = $request->short_despriction;
         $curso->description = $request->description;
+
 
         $curso->save();
 
@@ -89,5 +90,17 @@ class CursoController extends Controller
 
         return redirect()->route('cursos.index')->with('msg','Matricula feita com sucesso!');
     
+}
+
+public function joinCursoP($id){
+
+    $user = auth()->user();
+
+    $user->cursos()->attach($id);
+
+    $curso = Curso::findOrFail($id);
+
+    return redirect()->route('cursos.index')->with('msg','Matricula feita com sucesso!');
+
 }
 }

@@ -24,6 +24,7 @@
                     <th scope="col"> Professor   </th>
                     <th scope="col"> Status </th>
                     <th scope="col"> Ações </th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -37,10 +38,12 @@
                     <td><a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
                     @endcan
                     <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
-                    <button type="submit" class="btn btn-outline-primary">Matricular</button>
+                    <a href="{{ route('cursos.join', $curso ->id)}}" type="submit" class="btn btn-outline-primary">Matricular</button>
                     </form></td>
+
                     @endcan
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
+
                 </tr>
                 @endforeach
             </tbody>

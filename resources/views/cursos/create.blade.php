@@ -63,7 +63,25 @@
                 </select>
             </div>
 
-    <input type="submit" class="btn btn-outline-primary" value="Cadastrar curso">
+
+            <div class="row mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Minimo de Alunos') }}</label>
+                <div class="col-md-6">
+                <input type="text" class="from-control" id="min" name="min" placeholder="Minimo de Alunos">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Maximo de Alunos') }}</label>
+                <div class="col-md-6">
+                <input type="text" class="from-control" id="max" name="max" placeholder="Maximo de Alunos">
+                </div>
+            </div>
+    
+    
+
+    <input type="submit" class="btn btn-outline-primary" value="Cadastrar aluno">
+
 </form>
                 </div>                
             </div>
