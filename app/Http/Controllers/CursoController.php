@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use app\Models\User;
 
 class CursoController extends Controller
 {
@@ -22,7 +23,9 @@ class CursoController extends Controller
        if (!$curso = Curso::find($id))
             return redirect()->route('cursos.index');
 
-        return view('cursos.show',compact('curso'));
+        $profCurso = User::where('id', $curso->user_id)->first()->Toarray();
+
+        return view('cursos.show',['curso'=>$curso, 'profCurso'=>$profCurso]);
 
     }
 
@@ -34,9 +37,14 @@ class CursoController extends Controller
 
     public function store(Request $request){
        
-        Curso::create($request->all());
+        $curso = new Curso;
+        $curso->name = $request->name;
+        $curso->short_despriction = $request->short_despriction;
+        $curso->description = $request->description;
 
-        return redirect()->route('cursos.index')->with('msg','curso cadastrado com sucesso!');;
+        $curso->save();
+
+        return redirect()->route('cursos.index')->with('msg','Curso cadastrado com sucesso!');
 
      }
 
@@ -56,7 +64,7 @@ class CursoController extends Controller
 
             Curso::findOrFail($request->id)->update($request->all());
 
-        return redirect()->route('cursos.index')->with('msg1','curso editado com sucesso!');;
+        return redirect()->route('cursos.index')->with('msg','Curso editado com sucesso!');
 
      }
 
@@ -68,18 +76,18 @@ class CursoController extends Controller
 
         $curso->delete();
 
-        return redirect()->route('cursos.index')->with('msg2','curso deletada com sucesso!');;
+        return redirect()->route('cursos.index')->with('msg','Curso deletado com sucesso!');
 
      }
-    public function joinMateria($id){
+    public function joinCurso($id){
 
+        $user = auth()->user();
 
-
-       // $aluno->materias()->attach($id);
+        $user->cursosAsAluno()->attach($id);
 
         $curso = Curso::findOrFail($id);
 
-
+        return redirect()->route('cursos.index')->with('msg','Matricula feita com sucesso!');
     
 }
 }

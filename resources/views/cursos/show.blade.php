@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <p class="card-description">Descrição: {{$curso->description}}</p>
-                                <p class="card-description">Professor: professor</p>
+                                <p class="card-description">Professor: {{$profCurso['name']}}</p>
                                 <p>Status: {{$curso->status}}</p>
                         </div>
                         @can('is_Secretaria')

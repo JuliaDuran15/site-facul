@@ -39,7 +39,7 @@ Route::post('/cursos', [CursoController::class, 'store'] )->name('cursos.store')
 Route::get('/cursos/{id}', [CursoController::class, 'show'] )->name('cursos.show');
 Route::delete('/cursos/{id}', [CursoController::class, 'destroy'] )->name('cursos.destroy');
 Route::get('/cursos/{id}/edit', [CursoController::class, 'edit'] )->name('cursos.edit');
-Route::post('/cursos/join/{id}',[CursoController::class,'joinMateria'])->name('cursos.join');
+Route::post('/cursos/join/{id}',[CursoController::class,'joinCurso'])->name('cursos.join');
 
 
 Route::get('/', function () {
