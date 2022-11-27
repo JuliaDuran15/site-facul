@@ -21,6 +21,7 @@
                     <th scope="col"> Professor   </th>
                     <th scope="col"> Status </th>
                     <th scope="col"> Ações </th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -34,11 +35,15 @@
                 <td>
                     <a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
-                    <a href="{{route('alunos.create', $curso->id)}}" class="btn btn-outline-success">Matricular</a>
-                   <!-- <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
+                    <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
                     </form>-->
                 </td>
+                    <td><a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
+                    <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
+                    <a href="{{ route('cursos.join', $curso ->id)}}" type="submit" class="btn btn-outline-primary">Matricular</button>
+                    </form></td>
+                    <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
                 </tr>
                 @endforeach
             </tbody>
