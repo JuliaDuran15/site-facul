@@ -9,6 +9,9 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Professor') }}</div>
 
+                @can('is_Prof')
+                @can('is_Secretaria')
+
                 <div class="card-body">
 
 
@@ -78,4 +81,8 @@
     </div>
 </div>
 </div>
+
+@endcan
+@endcan
+
 @endsection

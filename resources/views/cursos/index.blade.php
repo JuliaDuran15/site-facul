@@ -6,6 +6,11 @@
 <div class="dashboard-title-container">
     <h1> Cursos disponíveis: </h1>
 </div>
+
+@can('is_Prof')
+@can('is_Aluno')
+@can('is_Secretaria')
+
 @auth
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -30,10 +35,12 @@
                     <td>professor responsavel</td>
                     <td>{{$curso->status}}</td>
                     <td><a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
-                    <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
+                    @endcan
                     <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
                     </form></td>
+                    @endcan
+                    <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
                 </tr>
                 @endforeach
             </tbody>
@@ -54,5 +61,7 @@
     </div>
 </div>
 @endguest
-@endsection
-        
+
+@endcan
+
+@endsection    
