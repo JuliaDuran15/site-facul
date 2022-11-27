@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Aluno;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -71,14 +70,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'acesso'=> $data['acesso'],
         ]);
+    }
 
-        /**$id_User = User::find()->latest('id');
-
-        *if($data['acesso'] == 'aluno'){
-        *Aluno::create([
-        *    'name' => $data['name'],
-        *    'id_users' => $data['id_User'],
-        *]);
-        *}
-        */}
+     /*$id_User = User::find()->latest('id');
+        if($data['acesso'] == 'aluno'){
+        Aluno::create([
+            'name' => $data['name'],
+            'id_users' => $data['id_User'],
+        ]); } */
+    
 }

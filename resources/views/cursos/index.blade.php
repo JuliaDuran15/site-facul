@@ -7,9 +7,6 @@
     <h1> Cursos disponíveis: </h1>
 </div>
 
-@can('is_Prof')
-@can('is_Aluno')
-@can('is_Secretaria')
 
 @auth
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
@@ -34,13 +31,14 @@
                     <td>{{$curso->short_despriction}}</td>
                     <td>professor responsavel</td>
                     <td>{{$curso->status}}</td>
-                    <td><a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
-                    @endcan
-                    <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
-                    <button type="submit" class="btn btn-outline-primary">Matricular</button>
-                    </form></td>
-                    @endcan
+                <td>
+                    <a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
+                    <a href="{{route('alunos.create', $curso->id)}}" class="btn btn-outline-success">Matricular</a>
+                   <!-- <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
+                    <button type="submit" class="btn btn-outline-primary">Matricular</button>
+                    </form>-->
+                </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -62,7 +60,7 @@
 </div>
 @endguest
 
-@endcan
+
 
 @endsection    
 

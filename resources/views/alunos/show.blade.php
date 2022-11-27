@@ -5,9 +5,6 @@
 @section('content')
 <h1> Informações do/a Aluno/a {{$aluno->name}}</h1>
 
-@can('is_Aluno')
-@can('is_Secretaria')
-
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="p-6">
                         <div class="col-md-8">
@@ -19,8 +16,7 @@
                             <p>Filme Favorito: {{$aluno->fav_film}}</p>
                         </div>
 
-                        @endcan
-
+                    @can('is_Secretaria')
                         <form action="{{ route('alunos.destroy', $aluno ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
@@ -31,5 +27,4 @@
 
             @endcan
             
-
 @endsection

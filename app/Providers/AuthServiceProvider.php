@@ -31,8 +31,6 @@ class AuthServiceProvider extends ServiceProvider
                             : false;
     });
 
-
-
         Gate::define('is_Aluno', function ($user) {
 
         return $user->acesso == 'aluno'
