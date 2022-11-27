@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('professor_id');
             $table->string('name',80);
+
             $table->string('preofessor');
+
             $table->text('short_despriction');
             $table->text('description');
             $table->enum('status',['abertas-min-nao-atingido','abertas-min-atingido','encerradas']);

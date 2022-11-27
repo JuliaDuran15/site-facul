@@ -31,6 +31,7 @@
                     <a href="{{route('alunos.edit', $aluno->id)}}" class="btn btn-outline-success">Editar</a>
                     @endcan
                     @endcan
+
                     <!--<a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>-->
                 </tr>
                 @endforeach
@@ -47,6 +48,7 @@
 <a href="{{ route ('alunos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Aluno</a>
 </div>
 @endauth
+
 @endcan
 
 @guest
@@ -56,5 +58,6 @@
     </div>
 </div>
 @endguest
+
 
 @endsection        

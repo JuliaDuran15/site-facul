@@ -36,7 +36,7 @@
                         <input type="text" class="from-control" id="professor" name="professor" placeholder="Professor">
                         </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                         <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Descrição Curta') }}</label>
                         <div class="col-md-6">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Descricao') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Descrição') }}</label>
                         <div class="col-md-6">
                         <textarea name="description" id="description"  class="form-control" placeholder="Descricao" value="{{$curso->despriction}}"></textarea>
                         </div>

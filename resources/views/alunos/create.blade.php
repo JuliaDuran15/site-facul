@@ -7,8 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
+
+                @can('is_Secretaria')
                 
-            @can('is_Secretaria')
 
                 <div class="card-header">{{ __('Cadastro de Aluno') }}</div>
                 <div class="card-body">

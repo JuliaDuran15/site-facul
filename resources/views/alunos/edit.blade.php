@@ -12,6 +12,9 @@
                 @can('is_Secretaria')
                 @can('is_Aluno')
 
+                @can('is_Aluno')
+                @can('is_Secretaria')
+
                 <div class="card-body">
 
 
@@ -43,6 +46,12 @@
                             @endcan
                 @can('is_Secretaria')
                 @can('is_Aluno')
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nova Senha') }}</label>
+                                <div class="col-md-6">
+                                <input type="string" class="from-control" id="password" name="password" placeholder="Nova Senha"value="{{$users->password}}">
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label for="Rp" class="col-md-4 col-form-label text-md-end">{{ __('RA') }}</label>
                                 <div class="col-md-6">

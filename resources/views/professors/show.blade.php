@@ -17,6 +17,7 @@
                             <p> Cidade: {{$professor->Cidade}}, Estado: {{$professor->Estado}}</p>
                             <p>Materias: </p>
                             </div>
+
                         @endcan
                         <form action="{{ route('professors.destroy', $professor ->id)}}" method="POST">
                             @method('DELETE')

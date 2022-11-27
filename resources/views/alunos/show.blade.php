@@ -18,7 +18,9 @@
                             <p> Cidade: {{$aluno->Cidade}}, Estado: {{$aluno->Estado}}</p>
                             <p>Filme Favorito: {{$aluno->fav_film}}</p>
                         </div>
+
                         @endcan
+
                         <form action="{{ route('alunos.destroy', $aluno ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
@@ -26,6 +28,8 @@
                         </div>
                 </div>
             </div>
+
             @endcan
             
+
 @endsection
