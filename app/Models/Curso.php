@@ -10,7 +10,6 @@ class Curso extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-
     //para professores
     public function user(){
         return $this->belongsTo('App\Models\User');
@@ -19,6 +18,11 @@ class Curso extends Model
     //para alunos
     public function users(){
         return $this->belongsToMany('App\Models\User');
+    }
+    
+    public function professor(){
+
+        return $this->belongsTo(Professor::class);
 
     }
 }

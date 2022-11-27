@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('professor_id');
             $table->string('name',80);
             $table->string('professor');
             $table->text('short_despriction');
