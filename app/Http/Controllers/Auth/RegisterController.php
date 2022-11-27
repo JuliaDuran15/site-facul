@@ -65,20 +65,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'acesso'=> $data['acesso'],
         ]);
 
-        /**$id_User = User::find()->latest('id');
+        $id_User = User::find()->latest('id');
 
-        *if($data['acesso'] == 'aluno'){
-        *Aluno::create([
-        *    'name' => $data['name'],
-        *    'id_users' => $data['id_User'],
-        *]);
-        *}
-        */}
+        if($data['acesso'] == 'aluno'){
+        Aluno::create([
+            'name' => $data['name'],
+            'id_users' => $data['id_User'],
+        ]);
+        }
+}
 }

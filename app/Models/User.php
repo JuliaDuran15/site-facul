@@ -49,16 +49,7 @@ class User extends Authenticatable
             return $this-> hasOne(Aluno::class);
     }
     
-    //para prof
-    public function cursos(){
-        return $this->hasMany('App\Models\Curso');
-    }
     
-    //para aluno
-    public function cursosAsAluno(){
-        return $this->belongsToMany('App\Models\Curso');
-    }
-
 }
 
 

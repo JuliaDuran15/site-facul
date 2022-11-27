@@ -34,7 +34,7 @@ public function store(Request $request){
    
     Professor::create($request->all());
 
-    return redirect()->route('professors.index')->with('msg','Professor cadastrado com sucesso!');
+    return redirect()->route('professors.index')->with('msg','Professor cadastrado com sucesso!');;
 
  }
 
@@ -54,7 +54,7 @@ public function update(Request $request, $id){
 
         Professor::findOrFail($request->id)->update($request->all());
 
-    return redirect()->route('professors.index')->with('Professor','Aluno editado com sucesso!');
+    return redirect()->route('professors.index')->with('Professor','Aluno editado com sucesso!');;
 
  }
 
@@ -66,7 +66,7 @@ public function destroy($id){
 
     $professor->delete();
 
-    return redirect()->route('professors.index')->with('msg2','Professor deletado com sucesso!');
+    return redirect()->route('professors.index')->with('msg2','Professor deletado com sucesso!');;
 
  }
 }

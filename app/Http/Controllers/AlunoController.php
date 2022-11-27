@@ -33,20 +33,9 @@ class AlunoController extends Controller
 
     public function store(Request $request){
        
-        $aluno = new Aluno;
-        $aluno->name = $request->name;
-        $aluno->Ra = $request->Ra;
-        $aluno->Cpf = $request->Cpf;
-        $aluno->Cidade = $request->Cidade;
-        $aluno->Cep = $request->Cep;
-        $aluno->Rua = $request->Rua;
-        $aluno->numero = $request->numero;
-        $aluno->Estado = $request->Estado;
-        $aluno->fav_film = $request->fav_film;
-        
-        $aluno->save();
+        Aluno::create($request->all());
 
-        return redirect()->route('alunos.index')->with('msg','Aluno cadastrado com sucesso!');
+        return redirect()->route('alunos.index')->with('msg','Aluno cadastrado com sucesso!');;
 
      }
 
@@ -59,14 +48,14 @@ class AlunoController extends Controller
 
      }
     
-    public function login($id, Request $request){
+    public function login($id){
        
         if (!$aluno = Aluno::find($id))
             return redirect()->route('alunos.index');
 
-        Aluno::findOrFail($id)->update($request->all());
+        Aluno::findOrFail($request->id)->update($request->all());
 
-        return redirect()->route('alunos.index');
+        return redirect()->route('alunos.index')->with('msg1','Login criado com sucesso!');;
      }
 
     public function update(Request $request, $id){
@@ -76,7 +65,7 @@ class AlunoController extends Controller
 
         Aluno::findOrFail($request->id)->update($request->all());
 
-        return redirect()->route('alunos.index')->with('msg1','Aluno editado com sucesso!');
+        return redirect()->route('alunos.index')->with('msg1','Aluno editado com sucesso!');;
 
      }
 
@@ -88,7 +77,7 @@ class AlunoController extends Controller
 
         $aluno->delete();
 
-        return redirect()->route('alunos.index')->with('msg2','Aluno deletado com sucesso!');
+        return redirect()->route('alunos.index')->with('msg2','Aluno deletado com sucesso!');;
 
      }
 }

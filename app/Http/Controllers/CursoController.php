@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
-use app\Models\User;
 
 class CursoController extends Controller
 {
@@ -23,9 +22,7 @@ class CursoController extends Controller
        if (!$curso = Curso::find($id))
             return redirect()->route('cursos.index');
 
-        $profCurso = User::where('id', $curso->user_id)->first()->Toarray();
-
-        return view('cursos.show',['curso'=>$curso, 'profCurso'=>$profCurso]);
+        return view('cursos.show',compact('curso'));
 
     }
 
@@ -37,14 +34,9 @@ class CursoController extends Controller
 
     public function store(Request $request){
        
-        $curso = new Curso;
-        $curso->name = $request->name;
-        $curso->short_despriction = $request->short_despriction;
-        $curso->description = $request->description;
+        Curso::create($request->all());
 
-        $curso->save();
-
-        return redirect()->route('cursos.index')->with('msg','Curso cadastrado com sucesso!');
+        return redirect()->route('cursos.index')->with('msg','curso cadastrado com sucesso!');;
 
      }
 
@@ -64,7 +56,7 @@ class CursoController extends Controller
 
             Curso::findOrFail($request->id)->update($request->all());
 
-        return redirect()->route('cursos.index')->with('msg','Curso editado com sucesso!');
+        return redirect()->route('cursos.index')->with('msg1','curso editado com sucesso!');;
 
      }
 
@@ -76,18 +68,18 @@ class CursoController extends Controller
 
         $curso->delete();
 
-        return redirect()->route('cursos.index')->with('msg','Curso deletado com sucesso!');
+        return redirect()->route('cursos.index')->with('msg2','curso deletada com sucesso!');;
 
      }
-    public function joinCurso($id){
+    public function joinMateria($id){
 
-        $user = auth()->user();
 
-        $user->cursosAsAluno()->attach($id);
+
+       // $aluno->materias()->attach($id);
 
         $curso = Curso::findOrFail($id);
 
-        return redirect()->route('cursos.index')->with('msg','Matricula feita com sucesso!');
+
     
 }
 }

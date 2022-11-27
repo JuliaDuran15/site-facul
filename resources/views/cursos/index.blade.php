@@ -6,7 +6,6 @@
 <div class="dashboard-title-container">
     <h1> Cursos disponíveis: </h1>
 </div>
-@auth
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
     <div class="grid grid-cols-1 md:grid-cols-2">
         @if(count($cursos)>0)
@@ -46,13 +45,5 @@
 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
 <a href="{{ route ('cursos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Curso</a>
 </div>
-@endauth
-@guest
-<div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
-    <div class="grid grid-cols-1 md:grid-cols-2">
-    <a>Você não pode acessar sem login</a>
-    </div>
-</div>
-@endguest
 @endsection
         

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('numero')->nullable();
             $table->string('Estado')->nullable();
             $table->text('fav_film')->nullable();
-            /**$table->foreignId('id_user')->default('1')*/; 
+            $table->foreignId('id_user')->constrained('users'); 
         });
     }
 

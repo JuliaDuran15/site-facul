@@ -16,17 +16,7 @@
     <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <style>.msg{
-        background-color: #d4edda;
-        color: #155724;
-        border: solid 1px #c3e6cb;
-        text-align: center;
-        padding: 10px;
-        margin-bottom: 0;
-        width: 100%;
-    }
-    </style>
-
+    
 </head>
 <body>
     <div id="app">
@@ -102,14 +92,6 @@
         </nav>
 
         <main class="py-4">
-            <div class="container-fluid">
-                <div class="row">
-                    @if(session('msg'))
-                    <p class="msg">{{session('msg')}}</p>
-                    @endif
-                    
-                </div>
-            </div>
             @yield('content')
         </main>
     </div>
