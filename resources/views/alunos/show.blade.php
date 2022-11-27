@@ -28,6 +28,8 @@
                         </div>
                 </div>
             </div>
-@endcan
+
+            @endcan
+            
 
 @endsection

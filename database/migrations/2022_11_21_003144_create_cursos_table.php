@@ -18,7 +18,9 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('professor_id');
             $table->string('name',80);
-            $table->string('professor');
+
+            $table->string('preofessor');
+
             $table->text('short_despriction');
             $table->text('description');
             $table->enum('status',['abertas-min-nao-atingido','abertas-min-atingido','encerradas']);

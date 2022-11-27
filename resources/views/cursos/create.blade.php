@@ -9,9 +9,10 @@
             <div class="card">
 
             @can('is_Secretaria')
-            
+
                 <div class="card-header">{{ __('Cadastro de Curso') }}</div>
-                    <div class="card-body">
+                <div class="card-body">
+
 
 @if ($errors->any())
     <ul class="errors">

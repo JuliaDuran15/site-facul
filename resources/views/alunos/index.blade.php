@@ -31,7 +31,8 @@
                     <a href="{{route('alunos.edit', $aluno->id)}}" class="btn btn-outline-success">Editar</a>
                     @endcan
                     @endcan
-                    <a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>
+
+                    <!--<a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>-->
                 </tr>
                 @endforeach
             </tbody>
@@ -43,7 +44,6 @@
 </div>
 
 @can('is_Secretaria')
-
 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
 <a href="{{ route ('alunos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Aluno</a>
 </div>
@@ -59,5 +59,5 @@
 </div>
 @endguest
 
-@endsection
-        
+
+@endsection        

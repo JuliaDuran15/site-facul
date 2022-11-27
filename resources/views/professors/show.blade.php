@@ -24,9 +24,10 @@
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
                         </form>
-                        @endcan
                         </div>
                         </div>
                     </div>
             </div>
+            @endcan
+            
         @endsection
