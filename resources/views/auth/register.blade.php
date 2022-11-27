@@ -66,6 +66,7 @@
                             <select name="acesso" id="acesso" class="form-control">
                                 <option value="aluno">Aluno</option>
                                 <option value="professor">Professor</option>
+                                <option value="secretaria">Secretaria</option>
                             </select>
 
                         </div>
