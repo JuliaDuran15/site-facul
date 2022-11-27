@@ -5,6 +5,8 @@
 @section('content')
 <h1> Informações do/a Aluno/a {{$aluno->name}}</h1>
 
+@can('is_Aluno')
+@can('is_Secretaria')
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="p-6">
@@ -16,6 +18,9 @@
                             <p> Cidade: {{$aluno->Cidade}}, Estado: {{$aluno->Estado}}</p>
                             <p>Filme Favorito: {{$aluno->fav_film}}</p>
                         </div>
+
+                        @endcan
+
                         <form action="{{ route('alunos.destroy', $aluno ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
@@ -23,4 +28,6 @@
                         </div>
                 </div>
             </div>
+@endcan
+
 @endsection

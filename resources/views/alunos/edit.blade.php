@@ -9,6 +9,9 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Aluno') }}</div>
 
+                @can('is_Aluno')
+                @can('is_Secretaria')
+
                 <div class="card-body">
 
 
@@ -28,6 +31,12 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nome do Aluno') }}</label>
                                 <div class="col-md-6">
                                 <input type="string" class="from-control" id="name" name="name" placeholder="Nome do Aluno"value="{{$aluno->name}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nova Senha') }}</label>
+                                <div class="col-md-6">
+                                <input type="string" class="from-control" id="password" name="password" placeholder="Nova Senha"value="{{$users->password}}">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -85,5 +94,8 @@
     </div>
 </div>
 </form>
+
+@endcan
+@endcan
 
 @endsection

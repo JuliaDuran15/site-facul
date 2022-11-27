@@ -14,6 +14,7 @@
                                 <p class="card-description">Professor: {{$profCurso['name']}}</p>
                                 <p>Status: {{$curso->status}}</p>
                         </div>
+
                         @can('is_Secretaria')
                         <form action="{{ route('cursos.destroy', $curso ->id)}}" method="POST">
                             @method('DELETE')
@@ -22,6 +23,7 @@
                         </div>
                         </form>
                         @endcan
+                        
                         <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
                             <button type="submit" class="btn btn-outline-info">Matricular-se</button>
                         </form>
