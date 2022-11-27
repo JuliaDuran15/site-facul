@@ -11,15 +11,16 @@
                         <div class="card">
                             <div class="card-body">
                                 <p class="card-description">Descrição: {{$curso->description}}</p>
-                                <p class="card-description">Professor: {{$profCurso['name']}}</p>
-                                <p>Status: {{$curso->status}}</p>
+                                <p class="card-description">Professor: prof_responsavel</p>
+                                <p>Status: @if($status=='abertas-min-nao-atingido')
+                                </p>
+                        </div>
                         </div>
                         @can('is_Secretaria')
                         <form action="{{ route('cursos.destroy', $curso ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
-                        </div>
                         </form>
                         @endcan
                         <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">

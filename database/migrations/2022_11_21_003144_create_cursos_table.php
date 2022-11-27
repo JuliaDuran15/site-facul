@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('short_despriction');
             $table->text('description');
             $table->enum('status',['abertas-min-nao-atingido','abertas-min-atingido','encerradas']);
+            $table->string('min');
+            $table->string('max');
         });
     }
 
