@@ -36,10 +36,21 @@
         @endif
     </div>
 </div>
+
+
+    @can('is_Secretaria')
+
+
 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
 <a href="{{ route ('professors.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Professor</a>
 </div>
 @endauth
+
+
+
+@endcan
+
+
 @guest
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden sm:rounded-lg dashboard-container">
     <div class="grid grid-cols-1 md:grid-cols-2">

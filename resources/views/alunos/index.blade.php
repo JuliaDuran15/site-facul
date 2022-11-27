@@ -26,8 +26,13 @@
                     <td>{{$aluno->name}}</td>
                     <td>  RA: {{$aluno->Ra}}</td>
                     <td><a href="{{route('alunos.show', $aluno->id)}}" class="btn btn-outline-info">Detalhes</a>
+                    @can('is_Aluno') 
+                    @can('is_Secretaria')
                     <a href="{{route('alunos.edit', $aluno->id)}}" class="btn btn-outline-success">Editar</a>
-                    <a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>
+                    @endcan
+                    @endcan
+
+                    <!--<a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>-->
                 </tr>
                 @endforeach
             </tbody>
@@ -37,10 +42,15 @@
         @endif
     </div>
 </div>
+
+@can('is_Secretaria')
 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
 <a href="{{ route ('alunos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Aluno</a>
 </div>
 @endauth
+
+@endcan
+
 @guest
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -48,5 +58,6 @@
     </div>
 </div>
 @endguest
-@endsection
-        
+
+
+@endsection        
