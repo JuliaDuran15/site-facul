@@ -80,7 +80,7 @@
     
     
 
-    <input type="submit" class="btn btn-outline-primary" value="Cadastrar aluno">
+    <input type="submit" class="btn btn-outline-primary" value="Cadastrar curso">
 
 </form>
                 </div>                

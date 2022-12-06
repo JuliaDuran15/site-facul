@@ -42,6 +42,7 @@
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
                     </form>
                 </td>
+
                 </tr>
                 @endforeach
             </tbody>
