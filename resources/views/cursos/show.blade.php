@@ -12,7 +12,7 @@
                             <div class="card-body">
                                 <p class="card-description">Descrição: {{$curso->description}}</p>
                                 <p class="card-description">Professor: prof_responsavel</p>
-                                <p>Status: @if($status=='abertas-min-nao-atingido')
+                                <p>Status: {{$curso->status}}
                                 </p>
                         </div>
                         </div>

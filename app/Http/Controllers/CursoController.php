@@ -41,6 +41,9 @@ class CursoController extends Controller
         $curso->name = $request->name;
         $curso->short_despriction = $request->short_despriction;
         $curso->description = $request->description;
+        $curso->min = $request->min;
+        $curso->max = $request->max;
+        $curso->professor = $request->professor;
 
 
         $curso->save();

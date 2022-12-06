@@ -37,13 +37,7 @@
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
                     <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
-                    </form>-->
-                </td>
-                    <td><a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
-                    <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
-                    <a href="{{ route('cursos.join', $curso ->id)}}" type="submit" class="btn btn-outline-primary">Matricular</button>
-                    </form></td>
-                    <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
+                    </form>
                 </tr>
                 @endforeach
             </tbody>
