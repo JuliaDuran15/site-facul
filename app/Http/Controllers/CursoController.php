@@ -36,6 +36,14 @@ class CursoController extends Controller
      }
 
     public function store(Request $request){
+
+        if($request->max < $request->min){
+	        return back()->with('erro','ERRO: mínimo de alunos maior do que máximo de alunos');}
+	
+
+	    if(is_numeric($request->min) != 1 || is_numeric($request->max) != 1 ){
+	        return back()->with('erro','ERRO: digite um número válido para o número de alunos');
+
        
         $curso = new Curso;
         $curso->name = $request->name;
@@ -106,4 +114,15 @@ public function joinCursoP($id){
     return redirect()->route('cursos.index')->with('msg','Matricula feita com sucesso!');
 
 }
+
+public function attachprof(Request $request){
+    
+    $curso = Curso::findOrFail($request->cursoid);
+    $user = User::findOrFail($request->userid);
+    $curso->user_id = $user->id;
+    $curso->save();
+    return back()->with("status","Professor " .$user->name. ' relacionado com ' .$curso->name );
+    
+}
+
 }

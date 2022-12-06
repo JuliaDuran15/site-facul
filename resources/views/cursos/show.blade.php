@@ -26,6 +26,10 @@
                         @endcan
                         
                         <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
+                            @method('PUT')
+                            @csrf
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                             <button type="submit" class="btn btn-outline-info">Matricular-se</button>
                         </form>
                 </div>
