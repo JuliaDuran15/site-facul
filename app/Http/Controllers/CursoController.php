@@ -115,14 +115,4 @@ public function joinCursoP($id){
 
 }
 
-public function attachprof(Request $request){
-    
-    $curso = Curso::findOrFail($request->cursoid);
-    $user = User::findOrFail($request->userid);
-    $curso->user_id = $user->id;
-    $curso->save();
-    return back()->with("status","Professor " .$user->name. ' relacionado com ' .$curso->name );
-    
-}
-
 }
