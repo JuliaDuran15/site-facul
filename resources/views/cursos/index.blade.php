@@ -34,9 +34,11 @@
                     <td>{{$curso->status}}</td>
                 <td>
                     <a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
+                    @if(Auth::user()->acesso  == "secretaria")
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
+                    @endif
                     <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
-                        @method('PUT')
+                        @method('GET')
                         @csrf
 
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
@@ -53,7 +55,9 @@
     </div>
 </div>
 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+@if(Auth::user()->acesso  == "secretaria")
 <a href="{{ route ('cursos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Curso</a>
+@endif
 </div>
 @endauth
 @guest

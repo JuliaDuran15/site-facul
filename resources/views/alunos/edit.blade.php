@@ -9,8 +9,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Aluno') }}</div>
                 
-                @can('is_Secretaria')
-                @can('is_Aluno')
+                @if(Auth::user()->acesso  == 'secretaria' || Auth::user()->id  == $aluno->id)
 
                 <div class="card-body">
 
@@ -88,7 +87,6 @@
 </div>
 </form>
 
-@endcan
-@endcan
+@endif
 
 @endsection

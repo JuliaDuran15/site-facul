@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('matriculas', function (Blueprint $table) {
+        Schema::create('curso_user', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("id_curso");
-            $table->integer("id_aluno");
+            $table->foreignId('curso_id')->constrained()->onDelete('cascade');;
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');;
         });
     }
 

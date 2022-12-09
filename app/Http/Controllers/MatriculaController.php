@@ -12,3 +12,4 @@ class MatriculaController extends Controller
         return view('welcome',['id_aluno' => $matricula]);
     }
 }
+

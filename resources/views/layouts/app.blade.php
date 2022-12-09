@@ -54,29 +54,40 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
 
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                            @if(Auth::user()->acesso  == 'secretaria')
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
                                 <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('alunos.index') }}">
                                             {{ __('Alunos') }}
                                         </a>
-                                </div>
-    
                                         <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('professors.index') }}">
                                             {{ __('Professores') }}
                                         </a>
                                         </div>
-
+                                </div>
+                            @endif
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+                                @if(Auth::user()->acesso  == 'aluno')
+                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('alunos.show',Auth::user()->id) }}">
+                                            {{ __('Meu perfil') }}
+                                        </a>
+                                @endif
+                                @if(Auth::user()->acesso  == 'professor')
+                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('professor.show',Auth::user()->id) }}">
+                                            {{ __('Meu perfil') }}
+                                        </a>
+                                @endif
+                                </div>
                                         <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('cursos.index') }}">
                                             {{ __('Cursos') }}
@@ -86,6 +97,11 @@
                                         
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @if(Auth::user()->acesso  != 'secretaria')
+                                    <a class="dropdown-item" href="{{ route('cursos.me') }}">
+                                        {{ __('Meus cursos') }}
+                                    </a>
+                                @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

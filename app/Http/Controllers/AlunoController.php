@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aluno;
+use App\Models\User;
 
 class AlunoController extends Controller
 {
@@ -11,18 +12,14 @@ class AlunoController extends Controller
 
         $alunos = Aluno::get();
         
-
         return view('alunos.index',compact('alunos'));
-
     }
 
     public function show($id){
-        
-       if (!$aluno = Aluno::find($id))
-            return redirect()->route('alunos.index');
 
-        return view('alunos.show',compact('aluno'));
+        $alunos = Aluno::get();        
 
+        return view('alunos.show',compact('alunos'));
     }
 
     public function create(){
@@ -52,7 +49,7 @@ class AlunoController extends Controller
 
     public function edit($id){
        
-        if (!$aluno = Aluno::find($id))
+        if (!$aluno = User::find($id))
             return redirect()->route('alunos.index');
 
         return view('alunos.edit',compact('aluno'));
@@ -71,10 +68,20 @@ class AlunoController extends Controller
 
     public function update(Request $request, $id){
        
-        if (!$aluno = Aluno::find($id))
+        if (!$aluno = Aluno::where('user_id', '=', $id))
             return redirect()->route('alunos.index');
 
-        Aluno::findOrFail($request->id)->update($request->all());
+        $aluno->update([
+            'name' => $request->name,
+            'Cpf' => $request->Cpf,
+            'Ra' => $request->Ra,
+            'Cidade' => $request->Cidade,
+            'Cep' => $request->Cep,
+            'Rua' => $request->Rua,
+            'numero' => $request->numero,
+            'Estado' => $request->Estado,
+            'fav_film' => $request->fav_film,
+        ]);;
 
         return redirect()->route('alunos.index')->with('msg1','Aluno editado com sucesso!');
 

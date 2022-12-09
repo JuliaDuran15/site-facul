@@ -17,16 +17,16 @@
                         </div>
                         </div>
 
-                        @if(Auth::user()->acesso  == "secretaria")
+                        @can('is_Secretaria')
                         <form action="{{ route('cursos.destroy', $curso ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
                         </form>
-                        @endif
+                        @endcan
                         
                         <form action="{{ route('cursos.join', $curso ->id)}}" method="POST">
-                            @method('GET')
+                            @method('PUT')
                             @csrf
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

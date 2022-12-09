@@ -3,7 +3,9 @@
 @section('title', 'Sobre Aluno')
 
 @section('content')
-<h1> Informações do/a Aluno/a {{$aluno->name}}</h1>
+@foreach($alunos as $aluno)
+@if($aluno->user_id == Auth::user()->id)
+<h1> Informações do/a Aluno/a {{ $aluno->name }}</h1>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="p-6">
@@ -16,6 +18,8 @@
                             <p>Filme Favorito: {{$aluno->fav_film}}</p>
                         </div>
 
+                        <a href="{{route('alunos.edit', Auth::user()->id)}}" class="btn btn-outline-success">Editar</a>
+
                     @can('is_Secretaria')
                         <form action="{{ route('alunos.destroy', $aluno ->id)}}" method="POST">
                             @method('DELETE')
@@ -26,5 +30,6 @@
             </div>
 
             @endcan
-            
+@endif
+@endforeach      
 @endsection

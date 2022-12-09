@@ -23,7 +23,7 @@ Route::post('/alunos', [AlunoController::class, 'store'] )->name('alunos.store')
 Route::get('/alunos/{id}', [AlunoController::class, 'show'] )->name('alunos.show');
 Route::delete('/alunos/{id}', [AlunoController::class, 'destroy'] )->name('alunos.destroy');
 Route::get('/alunos/{id}/edit', [AlunoController::class, 'edit'] )->name('alunos.edit');
-Route::put('/alunos/{id}', [AlunoController::class, 'update'] )->name('alunos.update');
+Route::put('/alunos/update/{id}', [AlunoController::class, 'update'] )->name('alunos.update');
 Route::get('/alunos/login', [AlunoController::class, 'login'] )->name('alunos.login');
 
 Route::get('/professors', [ProfessorController::class, 'index'] )->name('professors.index');
@@ -37,16 +37,22 @@ Route::put('/professores/{id}', [ProfessorController::class, 'update'] )->name('
 Route::get('/cursos', [CursoController::class, 'index'] )->name('cursos.index');
 Route::get('/cursos/create', [CursoController::class, 'create'] )->name('cursos.create');
 Route::post('/cursos', [CursoController::class, 'store'] )->name('cursos.store');
+Route::get('/cursos/me', [CursoController::class, 'showMe'] )->name('cursos.me');
+Route::delete('/cursos/leave/{id}', [CursoController::class, 'leaveCurso']);
 Route::get('/cursos/{id}', [CursoController::class, 'show'] )->name('cursos.show');
 Route::delete('/cursos/{id}', [CursoController::class, 'destroy'] )->name('cursos.destroy');
 Route::get('/cursos/{id}/edit', [CursoController::class, 'edit'] )->name('cursos.edit');
 Route::put('/cursos/{id}', [CursoController::class, 'update'] )->name('cursos.update');
-Route::post('/cursos/join/{id}',[CursoController::class,'joinCurso'])->name('cursos.join');
+Route::get('/cursos/join/{id}',[CursoController::class,'joinCurso'])->name('cursos.join');
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
