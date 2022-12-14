@@ -48,7 +48,14 @@ class User extends Authenticatable
     public function aluno(){
             return $this-> hasOne(Aluno::class);
     }
+
+    public function professor(){
+        return $this-> hasOne(Professor::class);
+}
     
+    public function matricula_prof(){
+        return $this->hasMany(Curso::class);
+    }
     //para prof
     public function cursos(){
         return $this->hasMany('App\Models\Curso');
@@ -58,6 +65,7 @@ class User extends Authenticatable
     public function cursosAsAluno(){
         return $this->belongsToMany('App\Models\Curso');
     }
+
 
 }
 

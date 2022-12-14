@@ -9,10 +9,9 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Professor') }}</div>
 
-                @can('is_Secretaria')
+                @if(Auth::user()->acesso  == 'secretaria' || Auth::user()->id  == $professor->user_id)
 
                 <div class="card-body">
-
 
                 @if ($errors->any())
                     <ul class="errors">

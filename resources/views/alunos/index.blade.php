@@ -26,7 +26,9 @@
                     <td>{{$aluno->name}}</td>
                     <td>  RA: {{$aluno->Ra}}</td>
                     <td><a href="{{route('alunos.show', $aluno->id)}}" class="btn btn-outline-info">Detalhes</a>
+                        @if(Auth::user()->acesso  == 'aluno')
                     <a href="{{route('alunos.edit', Auth::user()->id)}}" class="btn btn-outline-success">Editar</a>
+                    @endif
                     <!--<a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>-->
                 </tr>
                 @endforeach

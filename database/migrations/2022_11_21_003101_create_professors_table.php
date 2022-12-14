@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('professors', function (Blueprint $table) {
             $table->id();
+            $table->foreignID('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name',80)->nullable();
             $table->string('Ra')->nullable();
             $table->string('Cpf')->nullable();

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Aluno;
@@ -81,9 +82,12 @@ class AlunoController extends Controller
             'numero' => $request->numero,
             'Estado' => $request->Estado,
             'fav_film' => $request->fav_film,
-        ]);;
+        ]);
 
-        return redirect()->route('alunos.index')->with('msg1','Aluno editado com sucesso!');
+        if(Auth::user()->acesso  != 'secretaria'){
+        return redirect('/home')->with('msg','Perfil editado com sucesso!');}
+
+        return redirect()->route('alunos.index')->with('msg','Aluno editado com sucesso!');
 
      }
 

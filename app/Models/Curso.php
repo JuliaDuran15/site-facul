@@ -22,7 +22,7 @@ class Curso extends Model
     
     public function professor(){
 
-        return $this->belongsTo(Professor::class);
+        return $this->belongsTo(User::class);
 
     }
 }

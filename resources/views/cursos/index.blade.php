@@ -27,12 +27,14 @@
                     @if(Auth::user()->acesso  == "secretaria")
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
                     @endif
+                    @if(Auth::user()->acesso  == 'aluno')
                     <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
                         @method('GET')
                         @csrf
 
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
                     </form>
+                    @endif
                     </div>
                 </div>
                 @endforeach

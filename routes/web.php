@@ -3,7 +3,7 @@
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ProfessorController;
-
+use App\Models\Professor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +32,7 @@ Route::post('/professors', [ProfessorController::class, 'store'] )->name('profes
 Route::get('/professors/{id}', [ProfessorController::class, 'show'] )->name('professors.show');
 Route::delete('/professors/{id}', [ProfessorController::class, 'destroy'] )->name('professors.destroy');
 Route::get('/professors/{id}/edit', [ProfessorController::class, 'edit'] )->name('professors.edit');
-Route::put('/professores/{id}', [ProfessorController::class, 'update'] )->name('professors.update');
+Route::put('/professores/update/{id}', [ProfessorController::class, 'update'] )->name('professors.update');
 
 Route::get('/cursos', [CursoController::class, 'index'] )->name('cursos.index');
 Route::get('/cursos/create', [CursoController::class, 'create'] )->name('cursos.create');
@@ -45,6 +45,8 @@ Route::get('/cursos/{id}/edit', [CursoController::class, 'edit'] )->name('cursos
 Route::put('/cursos/{id}', [CursoController::class, 'update'] )->name('cursos.update');
 Route::get('/cursos/join/{id}',[CursoController::class,'joinCurso'])->name('cursos.join');
 
+Route::get('/prof/matricula/{idcurso}/{idprofessor}',[ProfessorController::class,'matricu_prof'])->name('matricu_prof');
+Route::get('/me', [ProfessorController::class, 'showMe'] )->name('professors.me');
 
 Route::get('/', function () {
     return view('welcome');

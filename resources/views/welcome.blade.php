@@ -37,8 +37,9 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <div class="ml-4 text-lg  leading-7 font-semibold">
-                        <a class=" text-gray-900 dark:text-white">SITE_Tech</a>
+                    <div class="ml-4 text-lg  leading-8 font-semibold">
+                        <img src="img/temapng.png" class="rounded" style="height:65px;width:65px; border-radius:50%; margin-right:15px; "> 
+                        <a class=" text-gray-900 dark:text-white" >Tech</a>
                     </div>
                 </div>
 

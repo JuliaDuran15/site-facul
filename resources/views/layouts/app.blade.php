@@ -32,8 +32,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
+                <img src="img/temapng.png" class="rounded" style="height:65px;width:65px; border-radius:50%; margin-right:15px; "> 
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel_work
+                    TECH
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -77,7 +78,7 @@
                                 @endif
                                 @if(Auth::user()->acesso  == 'professor')
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('professor.show',Auth::user()->id) }}">
+                                    <a class="nav-link active" href="{{ route('professors.show',Auth::user()->id) }}">
                                             {{ __('Meu perfil') }}
                                         </a>
                                 </li>
@@ -94,8 +95,13 @@
                                         {{ Auth::user()->name }}
                                     </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @if(Auth::user()->acesso  != 'secretaria')
+                                @if(Auth::user()->acesso  == 'aluno')
                                     <li><a class="dropdown-item" href="{{ route('cursos.me') }}">
+                                        {{ __('Meus cursos') }}
+                                    </a></li>
+                                @endif
+                                @if(Auth::user()->acesso  == 'professor')
+                                    <li><a class="dropdown-item" href="{{ route('professors.me') }}">
                                         {{ __('Meus cursos') }}
                                     </a></li>
                                 @endif

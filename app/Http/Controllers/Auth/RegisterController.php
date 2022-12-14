@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aluno;
+use App\Models\Professor;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,9 +69,15 @@ class RegisterController extends Controller
             'acesso' => $data['acesso'],
         ]);
 
+        if($user->acesso == 'aluno'){
         Aluno::create([
             'user_id' => $user->id,
-        ]);
+        ]);}
+
+        if($user->acesso == 'professor'){
+            Professor::create([
+                'user_id' => $user->id,
+            ]);}
 
         return ($user);
     }
