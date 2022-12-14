@@ -31,19 +31,15 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'TECH.com') }}
+                    Laravel_work
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -60,58 +56,59 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('alunos.index') }}">
+                            <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('alunos.index') }}">
                                             {{ __('Alunos') }}
                                         </a>
-                                        <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('professors.index') }}">
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('professors.index') }}">
                                             {{ __('Professores') }}
                                         </a>
-                                        </div>
-                                </div>
+                                        
+                            </li>
                             @endif
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
                                 @if(Auth::user()->acesso  == 'aluno')
-                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('alunos.show',Auth::user()->id) }}">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('alunos.show',Auth::user()->id) }}">
                                             {{ __('Meu perfil') }}
                                         </a>
+                                </li>
                                 @endif
                                 @if(Auth::user()->acesso  == 'professor')
-                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('professor.show',Auth::user()->id) }}">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('professor.show',Auth::user()->id) }}">
                                             {{ __('Meu perfil') }}
                                         </a>
+                                </li>
                                 @endif
-                                </div>
-                                        <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('cursos.index') }}">
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('cursos.index') }}">
                                             {{ __('Cursos') }}
                                         </a>
-                                        </div>
+                                    </li>
 
                                         
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                @if(Auth::user()->acesso  != 'secretaria')
-                                    <a class="dropdown-item" href="{{ route('cursos.me') }}">
-                                        {{ __('Meus cursos') }}
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
                                     </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if(Auth::user()->acesso  != 'secretaria')
+                                    <li><a class="dropdown-item" href="{{ route('cursos.me') }}">
+                                        {{ __('Meus cursos') }}
+                                    </a></li>
                                 @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
-                                    </a>
+                                    </a></li>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
+                                </ul>
                             </li>
                         @endguest
                     </ul>
