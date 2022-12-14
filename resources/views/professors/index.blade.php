@@ -25,8 +25,11 @@
                     <td scropt="row">{{$loop->index+1}}</td>
                     <td>{{$professor->name}}</td>
                     <td>  RP: {{$professor->Ra}}</td>
-                    <td><a href="{{route('professors.show', $professor->id)}}" class="btn btn-outline-info">Detalhes</a>
-                    <a href="{{route('professors.edit', $professor->id)}}" class="btn btn-outline-success">Editar</a></td>
+                    <td><a href="{{route('professors.show', $professor->user_id)}}" class="btn btn-outline-info">Detalhes</a>
+                        @if(Auth::user()->acesso  == 'professor')
+                    <a href="{{route('professors.edit', $professor->user_id)}}" class="btn btn-outline-success">Editar</a>
+                @endif
+            </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -17,14 +17,16 @@
                             <p> Cidade: {{$aluno->Cidade}}, Estado: {{$aluno->Estado}}</p>
                             <p>Filme Favorito: {{$aluno->fav_film}}</p>
                         </div>
-
+                        @if(Auth::user()->acesso  == 'aluno')
                         <a href="{{route('alunos.edit', Auth::user()->id)}}" class="btn btn-outline-success">Editar</a>
-
-                    @can('is_Secretaria')
+                        @endif
+                        @if(Auth::user()->acesso  == 'secretaria')
                         <form action="{{ route('alunos.destroy', $aluno ->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-outline-danger">Deletar</button>
+                        </form>
+                        @endif
                         </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name',80);
-            $table->string('professor');
+            $table->foreignID('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->text('short_despriction');
             $table->text('description');
             $table->string('status')->nullable();

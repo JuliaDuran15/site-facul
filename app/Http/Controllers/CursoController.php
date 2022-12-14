@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Curso;
 use App\Models\User;
+use App\Models\Professor;
 
 class CursoController extends Controller
 {
@@ -12,6 +13,7 @@ class CursoController extends Controller
     public function index(){
 
         $cursos = Curso::get();
+        $professor = Professor::all();
         
 
         return view('cursos.index',compact('cursos'));
@@ -24,8 +26,10 @@ class CursoController extends Controller
             return redirect()->route('cursos.index');
 
         //$profCurso = User::where('id', $curso->user_id)->first()->Toarray();
+        $professor = Professor::all();
+        
 
-        return view('cursos.show',['curso'=>$curso]);
+        return view('cursos.show',['curso'=>$curso,'professor'=>$professor]);
 
     }
 
@@ -52,7 +56,7 @@ class CursoController extends Controller
         $curso->description = $request->description;
         $curso->min = $request->min;
         $curso->max = $request->max;
-        $curso->professor = $request->professor;
+        
         
         if($curso->min == 0)
         {
