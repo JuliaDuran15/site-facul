@@ -127,7 +127,7 @@ class CursoController extends Controller
 
         elseif($contador == $curso->max)
         {
-            $curso->status = 'Maximo de alunos nao atingidos';
+            $curso->status = 'Maximo de alunos atingidos';
         }
 
         else
@@ -184,7 +184,7 @@ public function leaveCurso($id){
 
         elseif($contador == $curso->max)
         {
-            $curso->status = 'Maximo de alunos nao atingidos';
+            $curso->status = 'Maximo de alunos atingidos';
         }
 
         else
