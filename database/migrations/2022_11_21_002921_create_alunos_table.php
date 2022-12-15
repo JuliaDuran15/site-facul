@@ -15,16 +15,17 @@ return new class extends Migration
     {
         Schema::create('alunos', function (Blueprint $table) {
             $table->id();
+            $table->foreignID('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
-            $table->string('name',80);
-            $table->string('Ra');
-            $table->string('Cpf');
-            $table->string('Cidade');
-            $table->string('Cep');
-            $table->string('Rua');
-            $table->string('numero');
-            $table->string('Estado');
-            $table->text('fav_film');
+            $table->string('name',80)->nullable();
+            $table->string('Ra')->nullable();
+            $table->string('Cpf')->nullable();
+            $table->string('Cidade')->nullable();
+            $table->string('Cep')->nullable();
+            $table->string('Rua')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('Estado')->nullable();
+            $table->text('fav_film')->nullable();
         });
     }
 

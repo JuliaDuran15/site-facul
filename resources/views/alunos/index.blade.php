@@ -26,7 +26,9 @@
                     <td>{{$aluno->name}}</td>
                     <td>  RA: {{$aluno->Ra}}</td>
                     <td><a href="{{route('alunos.show', $aluno->id)}}" class="btn btn-outline-info">Detalhes</a>
-                    <a href="{{route('alunos.edit', $aluno->id)}}" class="btn btn-outline-success">Editar</a>
+                        @if(Auth::user()->acesso  == 'aluno')
+                    <a href="{{route('alunos.edit', Auth::user()->id)}}" class="btn btn-outline-success">Editar</a>
+                    @endif
                     <!--<a href="{{route('alunos.login', $aluno->id)}}" class="btn btn-outline-success">Criar Login</a></td>-->
                 </tr>
                 @endforeach
@@ -38,13 +40,9 @@
     </div>
 </div>
 
-@can('is_Secretaria')
-<div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-<a href="{{ route ('alunos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Aluno</a>
-</div>
 @endauth
 
-@endcan
+
 
 @guest
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">

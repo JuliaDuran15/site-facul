@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Aluno;
+use App\Models\Professor;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -36,11 +38,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -64,19 +62,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'acesso'=> $data['acesso'],
+            'acesso' => $data['acesso'],
         ]);
-    }
 
-     /*$id_User = User::find()->latest('id');
-        if($data['acesso'] == 'aluno'){
+        if($user->acesso == 'aluno'){
         Aluno::create([
-            'name' => $data['name'],
-            'id_users' => $data['id_User'],
-        ]); } */
-    
+            'user_id' => $user->id,
+        ]);}
+
+        if($user->acesso == 'professor'){
+            Professor::create([
+                'user_id' => $user->id,
+            ]);}
+
+        return ($user);
+    }
 }

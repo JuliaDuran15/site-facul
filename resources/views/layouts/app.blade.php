@@ -31,19 +31,16 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
+                <img src="/img/temapng.png" class="rounded" style="height:65px;width:65px; border-radius:50%; margin-right:15px; "> 
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'TECH.com') }}
+                    TECH
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -54,48 +51,70 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
 
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('alunos.index') }}">
+                            @if(Auth::user()->acesso  == 'secretaria')
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('alunos.index') }}">
                                             {{ __('Alunos') }}
                                         </a>
-                                </div>
-    
-                                        <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('professors.index') }}">
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('professors.index') }}">
                                             {{ __('Professores') }}
                                         </a>
-                                        </div>
-
-                                        <div class="nav-item dropdown" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('cursos.index') }}">
+                                        
+                            </li>
+                            @endif
+                                @if(Auth::user()->acesso  == 'aluno')
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('alunos.show',Auth::user()->id) }}">
+                                            {{ __('Meu perfil') }}
+                                        </a>
+                                </li>
+                                @endif
+                                @if(Auth::user()->acesso  == 'professor')
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('professors.show',Auth::user()->id) }}">
+                                            {{ __('Meu perfil') }}
+                                        </a>
+                                </li>
+                                @endif
+                                        <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('cursos.index') }}">
                                             {{ __('Cursos') }}
                                         </a>
-                                        </div>
+                                    </li>
 
                                         
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if(Auth::user()->acesso  == 'aluno')
+                                    <li><a class="dropdown-item" href="{{ route('cursos.me') }}">
+                                        {{ __('Meus cursos') }}
+                                    </a></li>
+                                @endif
+                                @if(Auth::user()->acesso  == 'professor')
+                                    <li><a class="dropdown-item" href="{{ route('professors.me') }}">
+                                        {{ __('Meus cursos') }}
+                                    </a></li>
+                                @endif
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
-                                    </a>
+                                    </a></li>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
+                                </ul>
                             </li>
                         @endguest
                     </ul>

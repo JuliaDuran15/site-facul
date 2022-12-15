@@ -11,49 +11,43 @@
 @auth
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
     <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="row">
         @if(count($cursos)>0)
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">  </th>
-                    <th scope="col"> Nome </th>
-                    <th scope="col"> Descrição  </th>
-                    <th scope="col"> Professor   </th>
-                    <th scope="col"> Status </th>
-                    <th scope="col"> Ações </th>
-                    
-                </tr>
-            </thead>
-            <tbody>
+        
                 @foreach($cursos as $curso)
-                <tr>
-                    <td scropt="row">{{$loop->index+1}}</td>
-                    <td>{{$curso->name}}</td>
-                    <td>{{$curso->short_despriction}}</td>
-                    <td>professor responsavel</td>
-                    <td>{{$curso->status}}</td>
-                <td>
+                <div class="card" style="width: 25%">
+                    <img src="{{$curso->image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$curso->name}}</h5>
+                        <p class="card-text">Descrição: {{$curso->short_despriction}}</p>
+                        <p class="card-text">Status: {{$curso->status}}</p>
+                
                     <a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
+                    @if(Auth::user()->acesso  == "secretaria")
                     <a href="{{route('cursos.edit', $curso->id)}}" class="btn btn-outline-success">Editar</a>
+                    @endif
+                    @if(Auth::user()->acesso  == 'aluno')
                     <form action="{{ route('cursos.join', $curso->id)}}" method="POST">
-                        @method('PUT')
+                        @method('GET')
                         @csrf
 
                     <button type="submit" class="btn btn-outline-primary">Matricular</button>
                     </form>
-                </td>
-
-                </tr>
+                    @endif
+                    </div>
+                </div>
                 @endforeach
-            </tbody>
-        </table>
+        </div>
+            
         @else 
         <p>Ainda não há cursos</p>
         @endif
     </div>
 </div>
 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+@if(Auth::user()->acesso  == "secretaria")
 <a href="{{ route ('cursos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Curso</a>
+@endif
 </div>
 @endauth
 @guest
