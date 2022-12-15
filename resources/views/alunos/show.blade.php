@@ -3,7 +3,7 @@
 @section('title', 'Sobre Aluno')
 
 @section('content')
-@foreach($alunos as $aluno)
+
 @if($aluno->user_id == Auth::user()->id || Auth::user()->acesso  == 'secretaria')
 <h1> Informações do/a Aluno/a {{ $aluno->name }}</h1>
 
@@ -33,5 +33,5 @@
 
             
 @endif
-@endforeach      
+    
 @endsection

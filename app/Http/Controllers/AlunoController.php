@@ -18,9 +18,9 @@ class AlunoController extends Controller
 
     public function show($id){
 
-        $alunos = Aluno::get();        
+        $aluno = Aluno::where('user_id', '=', $id)->firstorFail();       
 
-        return view('alunos.show',compact('alunos'));
+        return view('alunos.show',compact('aluno'));
     }
 
     public function create(){
