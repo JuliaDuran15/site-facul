@@ -25,7 +25,7 @@
                     <td scropt="row">{{$loop->index+1}}</td>
                     <td>{{$aluno->name}}</td>
                     <td>  RA: {{$aluno->Ra}}</td>
-                    <td><a href="{{route('alunos.show', $aluno->id)}}" class="btn btn-outline-info">Detalhes</a>
+                    <td><a href="{{route('alunos.show', $aluno->user_id)}}" class="btn btn-outline-info">Detalhes</a>
                         @if(Auth::user()->acesso  == 'aluno')
                     <a href="{{route('alunos.edit', Auth::user()->id)}}" class="btn btn-outline-success">Editar</a>
                     @endif
