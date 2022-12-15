@@ -32,7 +32,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <img src="img/temapng.png" class="rounded" style="height:65px;width:65px; border-radius:50%; margin-right:15px; "> 
+                <img src="/img/temapng.png" class="rounded" style="height:65px;width:65px; border-radius:50%; margin-right:15px; "> 
                 <a class="navbar-brand" href="{{ url('/') }}">
                     TECH
                 </a>

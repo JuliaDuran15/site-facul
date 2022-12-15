@@ -40,13 +40,9 @@
     </div>
 </div>
 
-@can('is_Secretaria')
-<div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-<a href="{{ route ('alunos.create')}} " class="btn btn-outline-dark btn-sm">Cadastrar Novo Aluno</a>
-</div>
 @endauth
 
-@endcan
+
 
 @guest
 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">

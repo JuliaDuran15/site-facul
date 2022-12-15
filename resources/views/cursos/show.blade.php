@@ -3,6 +3,7 @@
 @section('title', 'Curso')
 
 @section('content')
+@auth
     <h1> Informações do curso {{$curso->name}}</h1>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -56,4 +57,14 @@
 
                 </div>
             </div>
+
+            @endauth
+            @guest
+            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden sm:rounded-lg dashboard-container">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                <a>Você não pode acessar sem login</a>
+                </div>
+            </div>
+            @endguest
+
 @endsection

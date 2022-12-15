@@ -4,7 +4,7 @@
 
 @section('content')
 @foreach($alunos as $aluno)
-@if($aluno->user_id == Auth::user()->id)
+@if($aluno->user_id == Auth::user()->id || Auth::user()->acesso  == 'secretaria')
 <h1> Informações do/a Aluno/a {{ $aluno->name }}</h1>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            @endcan
+            
 @endif
 @endforeach      
 @endsection
