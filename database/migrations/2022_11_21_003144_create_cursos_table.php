@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('min');
             $table->string('max');
+            $table->string('image');
         });
     }
 
