@@ -3,7 +3,7 @@
 @section('title', 'Curso')
 
 @section('content')
-
+@if(count($meuscursos)>0)
     @foreach($meuscursos as $meucurso)
     <h1> Informações do curso {{$meucurso->name}}</h1>
 
@@ -19,7 +19,16 @@
                                 @foreach($meucurso->users as $user)
                                 {{$user->aluno->name}}
                                 @endforeach
+                                
                         </div>
                         </div>
     @endforeach
+@else
+<div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg dashboard-container">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+<a>Não está responsável por nenhum curso</a>
+    @endif
+    </div>
+</div>
+
 @endsection
