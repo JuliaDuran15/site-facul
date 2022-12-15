@@ -78,9 +78,9 @@ class CursoController extends Controller
        
         if (!$curso = Curso::find($id)){
             return redirect()->route('cursos.index');
-
-        return view('cursos.edit',compact('curso'));
         }
+        return view('cursos.edit',compact('curso'));
+        
      }
 
     public function update(Request $request, $id){
