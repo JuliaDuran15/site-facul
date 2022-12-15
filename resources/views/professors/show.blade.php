@@ -11,10 +11,10 @@
                         <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
-                                <p class="card-description">RP: {{$professor->Ra}} , CPF: {{$professor->professor}} </p>
+                                <p class="card-description">RP: {{$professor->Ra}} , CPF: {{$professor->Cpf}} </p>
                             <p> CEP: {{$professor->Cep}}, Rua: {{$professor->Rua}} ,Numero: {{$professor->numero}}</p>
                             <p> Cidade: {{$professor->Cidade}}, Estado: {{$professor->Estado}}</p>
-                            <p>Materias: </p>
+                            
                             </div>
                             @if(Auth::user()->acesso  == 'professor')
                             <a href="{{route('professors.edit', $professor->user_id)}}" class="btn btn-outline-success">Editar</a>

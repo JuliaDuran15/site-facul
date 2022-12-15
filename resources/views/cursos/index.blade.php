@@ -20,7 +20,6 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$curso->name}}</h5>
                         <p class="card-text">Descrição: {{$curso->short_despriction}}</p>
-                        <p class="card-text">Professor: professor responsavel</p>
                         <p class="card-text">Status: {{$curso->status}}</p>
                 
                     <a href="{{route('cursos.show', $curso->id)}}" class="btn btn-outline-info">Descrição</a>
