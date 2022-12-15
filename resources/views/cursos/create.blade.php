@@ -32,14 +32,7 @@
                 <input type="text" class="from-control" id="name" name="name" placeholder="Nome do Curso">
                 </div>
             </div>
-
-            <div class="row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Professor') }}</label>
-                <div class="col-md-6">
-                <input type="text" class="from-control" id="professor" name="professor" placeholder="Professor">
-                </div>
-            </div>
-    
+            
             <div class="row mb-3">
                 <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Descrição Curta') }}</label>
                 <div class="col-md-6">
