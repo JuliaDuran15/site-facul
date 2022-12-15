@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Curso') }}</div>
 
-                @can('is_Secretaria')
+                
                 <div class="card-body">
 
             @if ($errors->any())
@@ -73,6 +73,31 @@
                             <option value="encerradas">Matrículas Encerradas</option>
                         </select>
                     </div>
+
+                    <div class="row">
+                        <div class="card" style="width: 30%">
+                            <img src="/img/cursos/curso.png" class="card-img-top" alt="...">
+                            <p>Imagem1</p>
+                        </div>
+                        <div class="card" style="width: 30%">
+                            <img src="/img/cursos/Curso2.png" class="card-img-top" alt="...">
+                            <p>Imagem2</p>
+                        </div>
+                        <div class="card" style="width: 30%">
+                            <img src="/img/cursos/Curso3.png" class="card-img-top" alt="...">
+                            <p>Imagem3</p>
+                        </div>
+            
+                        <div class="row mb-3">
+                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Selecione uma imagem ') }}</label>
+                            <select name="image" id="image" class="form-control">
+                                <option value="/img/cursos/curso.png">Imagem 1</option>
+                                <option value="/img/cursos/Curso2.png">Imagem 2</option>
+                                <option value="/img/cursos/Curso3.png">Imagem 3</option>
+                            </select>
+                        </div>
+                    </div>
+
                 <input type="submit" class="btn btn-outline-primary" value="Editar Curso">
                 </form>
                 </div>                
@@ -80,6 +105,6 @@
         </div>
     </div>
 </div>
-@endcan
+
 
 @endsection

@@ -56,6 +56,7 @@ class CursoController extends Controller
         $curso->description = $request->description;
         $curso->min = $request->min;
         $curso->max = $request->max;
+        $curso->image = $request->image;
         
         
         if($curso->min == 0)
