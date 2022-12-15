@@ -56,6 +56,7 @@ class CursoController extends Controller
         $curso->description = $request->description;
         $curso->min = $request->min;
         $curso->max = $request->max;
+        $curso->image = $request->image;
         
         
         if($curso->min == 0)
@@ -77,9 +78,9 @@ class CursoController extends Controller
        
         if (!$curso = Curso::find($id)){
             return redirect()->route('cursos.index');
-
-        return view('cursos.edit',compact('curso'));
         }
+        return view('cursos.edit',compact('curso'));
+        
      }
 
     public function update(Request $request, $id){

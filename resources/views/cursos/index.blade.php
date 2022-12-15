@@ -16,7 +16,7 @@
         
                 @foreach($cursos as $curso)
                 <div class="card" style="width: 25%">
-                    <img src="img/curso.png" class="card-img-top" alt="...">
+                    <img src="{{$curso->image}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$curso->name}}</h5>
                         <p class="card-text">Descrição: {{$curso->short_despriction}}</p>
